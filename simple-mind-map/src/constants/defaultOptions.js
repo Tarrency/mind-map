@@ -362,6 +362,8 @@ export const defaultOpt = {
   },
   // 是否允许调整关联线两个端点的位置
   enableAdjustAssociativeLinePoints: true,
+  // 关联线连接即将完成时执行，如果要阻止本次连接可以返回true，函数接收一个参数：node（目标节点实例）
+  beforeAssociativeLineConnection: null,
 
   // 【TouchEvent插件】
   // 禁止双指缩放，你仍旧可以使用api进行缩放
@@ -442,5 +444,15 @@ export const defaultOpt = {
 
   // 【NodeImgAdjust】插件
   // 拦截节点图片的删除，点击节点图片上的删除按钮删除图片前会调用该函数，如果函数返回true则取消删除
-  beforeDeleteNodeImg: null
+  beforeDeleteNodeImg: null,
+  // 删除和调整两个按钮的大小
+  imgResizeBtnSize: 25,
+  // 最小允许缩放的尺寸，请传入>=0的数字
+  minImgResizeWidth: 50,
+  minImgResizeHeight: 50,
+  // 最大允许缩放的尺寸依据主题的配置，即主题的imgMaxWidth和imgMaxHeight配置，如果设置为false，那么使用maxImgResizeWidth和maxImgResizeHeight选项
+  maxImgResizeWidthInheritTheme: false,
+  // 最大允许缩放的尺寸，maxImgResizeWidthInheritTheme选项设置为false时生效，不限制最大值可传递Infinity
+  maxImgResizeWidth: Infinity,
+  maxImgResizeHeight: Infinity
 }
