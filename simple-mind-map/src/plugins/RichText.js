@@ -467,6 +467,18 @@ class RichText {
       },
       theme: 'snow'
     })
+
+    this.quill.root.addEventListener(
+      'keydown',
+      function (e) {
+        // 禁止Ctrl + b和Ctrl + i
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'b' || e.key === 'i')) {
+          e.preventDefault()
+          return false
+        }
+      },
+      true
+    )
     // 拦截复制事件，即Ctrl + c，去除多余的空行
     this.quill.root.addEventListener('copy', event => {
       event.preventDefault()
