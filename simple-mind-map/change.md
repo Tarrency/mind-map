@@ -26,3 +26,7 @@
 
 - 解决设置 mousedownEventPreventDefault 下框选会选中节点文字闪动问题
 - 解决富文本节点编辑的粗体和斜体快捷键和清除样式冲突问题(富文本模式会导致 nodebar 清除样式失效)
+
+  0.0.8
+
+- fix: 修复设置 readonly 如果处于编辑态还能编辑的问题
