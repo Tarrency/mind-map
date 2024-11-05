@@ -270,7 +270,7 @@ class RichText {
     // 节点文本内容
     let nodeText = node.getData('text')
     if (typeof transformRichTextOnEnterEdit === 'function') {
-      nodeText = transformRichTextOnEnterEdit(nodeText)
+      nodeText = transformRichTextOnEnterEdit(nodeText, isFromKeyDown)
     }
     // 是否是空文本
     const isEmptyText = isUndef(nodeText)
