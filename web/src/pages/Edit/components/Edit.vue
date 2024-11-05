@@ -139,6 +139,7 @@ MindMap.usePlugin(MiniMap)
   .usePlugin(RainbowLines)
   .usePlugin(Demonstrate)
   .usePlugin(OuterFrame)
+  // .usePlugin(Freemind)
 // .usePlugin(Cooperate) // 协同插件
 
 // 注册主题
@@ -353,6 +354,13 @@ export default {
         el: this.$refs.mindMapContainer,
         data: root,
         fit: false,
+          // 平移的步长比例
+        translateRatio: 0.5,
+        // 最小缩小值，百分数
+        minZoomRatio: 20,
+        // 最大放大值，百分数
+        maxZoomRatio: 400,
+        scaleRatio: 0.2,
         layout: layout,
         theme: theme.template,
         themeConfig: theme.config,
