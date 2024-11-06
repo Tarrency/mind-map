@@ -59,6 +59,9 @@
 <script>
 import xmind from 'simple-mind-map/src/parse/xmind.js'
 import markdown from 'simple-mind-map/src/parse/markdown.js'
+// import { freemindToSmm } from 'simple-mind-map-plugin-freemind/freemindTo.js'
+import { fileToBuffer } from '@/utils'
+import { read, utils } from 'xlsx'
 import { mapMutations, mapState } from 'vuex'
 import Vue from 'vue'
 
