@@ -188,7 +188,8 @@ class RichText {
       textAutoWrapWidth,
       selectTextOnEnterEditText,
       transformRichTextOnEnterEdit,
-      openRealtimeRenderOnNodeTextEdit
+      openRealtimeRenderOnNodeTextEdit,
+      enableAutoEmptyTextWhenKeydown
     } = this.mindMap.opt
     textAutoWrapWidth = node.hasCustomWidth()
       ? node.customTextWidth
@@ -223,8 +224,8 @@ class RichText {
         box-sizing: border-box; 
         ${
           openRealtimeRenderOnNodeTextEdit
-            ? ''
-            : 'box-shadow: 0 0 20px rgba(0,0,0,.5);'
+          ? ''
+          : 'box-shadow: 0 0 20px rgba(0,0,0,.5);'
         }
         outline: none; 
         word-break: break-all;
@@ -288,6 +289,10 @@ class RichText {
       // 已经是富文本
       this.textEditNode.innerHTML = this.cacheEditingText || nodeText
     }
+    if (enableAutoEmptyTextWhenKeydown && isFromKeyDown) {
+      this.textEditNode.innerHTML = ''
+      this.lostStyle = true
+    }
     this.initQuillEditor()
     document.querySelector('.ql-editor').style.minHeight = originHeight + 'px'
     this.showTextEdit = true
@@ -311,8 +316,8 @@ class RichText {
     this.textEditNode.style.background = openRealtimeRenderOnNodeTextEdit
       ? 'transparent'
       : this.node
-      ? this.mindMap.renderer.textEdit.getBackground(this.node)
-      : ''
+        ? this.mindMap.renderer.textEdit.getBackground(this.node)
+        : ''
     this.textEditNode.style.boxShadow = openRealtimeRenderOnNodeTextEdit
       ? 'none'
       : '0 0 20px rgba(0,0,0,.5)'
