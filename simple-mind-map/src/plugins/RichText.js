@@ -294,8 +294,32 @@ class RichText {
     this.showTextEdit = true
     // 如果是刚创建的节点，那么默认全选，否则普通激活不全选，除非selectTextOnEnterEditText配置为true
     // 在selectTextOnEnterEditText时，如果是在keydown事件进入的节点编辑，也不需要全选
+    // 判断是否要全选逻辑
+    const text = getTextFromHtml(nodeText)
+    const level = node.layerIndex
+    let isDefaultText = false
+
+    if (level === 0 && text === '未命名脑图') {
+      isDefaultText = true
+    }
+    if (
+      level === 1 &&
+      text === this.mindMap.opt.defaultInsertSecondLevelNodeText
+    ) {
+      isDefaultText = true
+    }
+    if (
+      level === 2 &&
+      text === this.mindMap.opt.defaultInsertBelowSecondLevelNodeText
+    ) {
+      isDefaultText = true
+    }
+
     this.focus(
-      isInserting || (selectTextOnEnterEditText && !isFromKeyDown) ? 0 : null
+      isInserting ||
+        (selectTextOnEnterEditText && !isFromKeyDown && isDefaultText)
+        ? 0
+        : null
     )
     if (noneEmptyNoneRichText) {
       // 如果是非富文本的情况，需要手动应用文本样式
