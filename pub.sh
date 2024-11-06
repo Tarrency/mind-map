@@ -18,6 +18,11 @@ npm run buildLibrary
 echo "准备发布..."
 cd "$CURRENT_DIR"
 cd simple-mind-map
+
+# 更新 package.json 中的版本号（patch 版本号加1）
+npm version patch
+
+# 登录并发布
 npm login --registry=https://ued.zuoyebang.cc/npm/ --username=zhangmingzhao
 npm publish
 
