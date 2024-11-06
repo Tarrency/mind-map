@@ -225,8 +225,8 @@ class RichText {
         box-sizing: border-box; 
         ${
           openRealtimeRenderOnNodeTextEdit
-          ? ''
-          : 'box-shadow: 0 0 20px rgba(0,0,0,.5);'
+            ? ''
+            : 'box-shadow: 0 0 20px rgba(0,0,0,.5);'
         }
         outline: none; 
         word-break: break-all;
