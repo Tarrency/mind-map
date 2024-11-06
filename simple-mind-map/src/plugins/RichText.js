@@ -317,8 +317,8 @@ class RichText {
     this.textEditNode.style.background = openRealtimeRenderOnNodeTextEdit
       ? 'transparent'
       : this.node
-        ? this.mindMap.renderer.textEdit.getBackground(this.node)
-        : ''
+      ? this.mindMap.renderer.textEdit.getBackground(this.node)
+      : ''
     this.textEditNode.style.boxShadow = openRealtimeRenderOnNodeTextEdit
       ? 'none'
       : '0 0 20px rgba(0,0,0,.5)'
