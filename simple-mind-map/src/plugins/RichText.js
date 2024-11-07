@@ -488,6 +488,16 @@ class RichText {
           }
         }
       },
+      formats: [
+        'bold',
+        'italic',
+        'underline',
+        'strike',
+        'color',
+        'background',
+        'font',
+        'size'
+      ], // 明确指定允许的格式，不包含有序列表，无序列表等
       theme: 'snow'
     })
 
